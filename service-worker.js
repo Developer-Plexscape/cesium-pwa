@@ -23,14 +23,20 @@ self.addEventListener('fetch', function(e) {
   var imageryUrl = '//a.tile.openstreetmap.org';
   if (e.request.url.indexOf(imageryUrl) > -1 || e.request.url.indexOf(terrainUrl) > -1) {
     /*
-     * When the request URL contains dataUrl, the app is asking for fresh
-     * weather data. In this case, the service worker always goes to the
-     * network and then caches the response. This is called the "Cache then
+     * When the request URL contains terrainUrl or imageryUrl, the app is asking for fresh
+     * data. In this case, the service worker first goes to the cache and if nothing
+     * is found it goes to the network and then caches the response. This is called the "Cache then
      * network" strategy:
      * https://jakearchibald.com/2014/offline-cookbook/#cache-then-network
      */
     e.respondWith(
       caches.open(dataCacheName).then(function(cache) {
+        cache.match(e.request).then(function(response) {
+          if(response){
+            return response;
+          }
+        });
+        
         return fetch(e.request).then(function(response){
           cache.put(e.request.url, response.clone());
           return response;
