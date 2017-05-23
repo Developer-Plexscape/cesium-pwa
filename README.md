@@ -1,6 +1,6 @@
 # Cesium PWA
 
-This is an experiment to showcase a progressive web application that interacts with [Cesium](http://cesiumjs.org/) library. It demonstrates how we can cache arbitrary content and make an application - built with Cesium - faster to load using [Progressive Web application](https://developers.google.com/web/progressive-web-apps/) techniques. It specifically uses the [cache-first-then-network](https://jakearchibald.com/2014/offline-cookbook/#cache-network-race) strategy to fetch and cache data.
+This is an experiment to showcase a progressive web application that interacts with [Cesium](http://cesiumjs.org/) library. It demonstrates how we can cache arbitrary content and make an application - built with Cesium - faster to load using [Progressive Web application](https://developers.google.com/web/progressive-web-apps/) techniques. It specifically uses the [cache-first-then-network](https://jakearchibald.com/2014/offline-cookbook/#cache-then-network) strategy to fetch and cache data.
 
 It uses **OpenStreetMaps** as imagery provider and **CesiumTerrainProvider** as terrain provider by default, although others could be used.
 
