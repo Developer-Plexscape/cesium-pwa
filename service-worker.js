@@ -19,9 +19,8 @@ self.addEventListener('install', function(e) {
 
 self.addEventListener('fetch', function(e) {
   console.log('[ServiceWorker] Fetch', e.request.url);
-  var terrainUrl = '//assets.agi.com'; 
-  var imageryUrl = '//a.tile.openstreetmap.org';
-  if (e.request.url.indexOf(imageryUrl) > -1 || e.request.url.indexOf(terrainUrl) > -1) {
+  var dataUrl = '//a.tile.openstreetmap.org';
+  if (e.request.url.indexOf(dataUrl) > -1) {
     /*
      * When the request URL contains terrainUrl or imageryUrl, the app is asking for fresh
      * data. In this case, the service worker first goes to the cache and if nothing

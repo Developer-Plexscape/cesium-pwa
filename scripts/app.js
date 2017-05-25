@@ -46,12 +46,9 @@
   var viewer = new Cesium.Viewer('cesiumContainer', {
     baseLayerPicker : false,
     sceneModePicker: false,
-    terrainProvider : new Cesium.CesiumTerrainProvider({
-        url : '//assets.agi.com/stk-terrain/world'
-    }),
     imageryProvider : Cesium.createOpenStreetMapImageryProvider({
         url : '//a.tile.openstreetmap.org/'
-    }),
+    })
   });
 
   if(localStorage.currentLocation) {
