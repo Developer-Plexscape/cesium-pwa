@@ -36,7 +36,13 @@ self.addEventListener('fetch', function(e) {
           }
         });
         
-        return fetch(e.request).then(function(response){
+        // IMPORTANT: Clone the request. A request is a stream and
+        // can only be consumed once. Since we are consuming this
+        // once by cache and once by the browser for fetch, we need
+        // to clone the response.
+        var fetchRequest = e.request.clone();
+
+        return fetch(fetchRequest).then(function(response){
           cache.put(e.request.url, response.clone());
           return response;
         });
