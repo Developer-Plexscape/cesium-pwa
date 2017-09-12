@@ -1,5 +1,9 @@
 # Cesium PWA
 
+<p align="center"> 
+<img src="https://cdn-images-1.medium.com/max/800/1*ChLp_eCOS1pb2EtV6kkbJg.png">
+</p>
+
 This is an experiment to showcase a progressive web application that interacts with [Cesium](http://cesiumjs.org/) library. It demonstrates how we can cache arbitrary imagery content and make an application - built with Cesium - faster to load using [Progressive Web application](https://developers.google.com/web/progressive-web-apps/) techniques. It specifically uses a strategy called [cache-then-network](https://developers.google.com/web/fundamentals/instant-and-offline/offline-cookbook/#cache-then-network) to fetch and cache imagery data from **OpenStreetMaps**, although other providers could be used.
 
 While the user navigates inside the viewer, imagery data are cached locally using the service worker. Alongside, the current location and orientation of the camera are kept locally in **localStorage**. Next time the user opens the application, being offline or not, he will be directed to its last known location with all imagery loaded instantly and fast.
